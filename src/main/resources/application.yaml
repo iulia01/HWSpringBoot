@@ -1,0 +1,48 @@
+spring:
+  profiles:
+    active: dev
+
+---
+spring:
+  config:
+    activate:
+      on-profile: dev
+app:
+  first-config: 0
+  second-config:
+    subconfig: dev_prof
+    user: user_to_dev
+    ttl: 123s
+sms-sender:
+  phone-number: 8-800-300-83-83
+  text: это телефон службы доверия
+---
+spring:
+  config:
+    activate:
+      on-profile: test
+app:
+  first-config: 1
+  second-config:
+    subconfig: test_prof
+    user: user_to_test
+    ttl: 12s
+sms-sender:
+  phone-number: 8-800-555-35-35
+  text: это спам
+---
+---
+spring:
+  config:
+    activate:
+      on-profile: prod
+app:
+  first-config: 1
+  second-config:
+    subconfig: test_prod
+    user: user_to_prod
+    ttl: 236s
+sms-sender:
+  phone-number: 8-800-300-11-00
+  text: это служба экстренной психологической помощи
+---
